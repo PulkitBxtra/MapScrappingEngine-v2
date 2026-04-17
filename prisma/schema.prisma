@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Search {
+  id          String    @id @default(uuid())
+  city        String
+  checkIn     DateTime
+  checkOut    DateTime
+  adults      Int       @default(2)
+  children    Int       @default(0)
+  rooms       Int       @default(1)
+  limit       Int       @default(30)
+  status      String
+  errorMsg    String?
+  jobId       String?
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+  hotels      Hotel[]
+
+  @@index([status])
+  @@index([city])
+}
+
+model Hotel {
+  id               String   @id @default(uuid())
+  searchId         String
+  search           Search   @relation(fields: [searchId], references: [id], onDelete: Cascade)
+  mmtHotelId       String
+  name             String
+  starRating       Float?
+  userRating       Float?
+  userRatingCount  Int?
+  priceInr         Int?
+  originalPriceInr Int?
+  discountPct      Int?
+  address          String?
+  locality         String?
+  city             String?
+  latitude         Float?
+  longitude        Float?
+  description      String?
+  amenities        Json?
+  imageUrls        Json?
+  thumbnailUrl     String?
+  detailUrl        String?
+  raw              Json?
+  scrapedAt        DateTime @default(now())
+
+  @@unique([searchId, mmtHotelId])
+  @@index([city])
+  @@index([latitude, longitude])
+}

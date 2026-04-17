@@ -1,0 +1,33 @@
+{
+  "topLevelKeys": [
+    "$common",
+    "$cosmos",
+    "$autoSuggestResponse",
+    "$fareCalendarResponse",
+    "$flightReducerDT",
+    "$hotelReducerResponse",
+    "$addPersonResponse",
+    "$calendarHolidaysResponse",
+    "$dayPickerResponse",
+    "$loginResponse",
+    "$experiment",
+    "$railReducer",
+    "$brandStore",
+    "$primaryTraveller",
+    "$geography",
+    "$myBiz",
+    "$cabReducerResponse",
+    "$connect",
+    "$userReducer",
+    "$loyaltyReducer",
+    "$nonCached"
+  ],
+  "requestInfo": null,
+  "searchHotels": {
+    "personalizedSectionCount": null,
+    "firstSectionSample": null,
+    "logData": null,
+    "totalHotels": null
+  },
+  "mobLandingCards": null
+}
